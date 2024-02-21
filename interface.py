@@ -28,6 +28,7 @@ from tkinter import ttk
 root = Tk()
 root.title('Chat')
 root.geometry("960x720")
+root.iconbitmap("icon.ico")
 
 my_menu = Menu(root)
 root.config(menu = my_menu)
