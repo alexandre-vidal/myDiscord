@@ -44,12 +44,17 @@ add_contact_menu.add_command(label = "David Hasselhoff")
 add_contact_menu.add_command(label = "Arnold Schwarzenegger")
 add_contact_menu.add_command(label = "Scarlett Johansson")
 add_contact_menu.add_command(label = "Sean Bean")
+add_contact_menu.add_command(label = "Daniel Radcliffe")
+add_contact_menu.add_command(label = "Ewan McGregor")
+add_contact_menu.add_command(label = "Bryan Cranston")
+add_contact_menu.add_command(label = "Michelle Yeoh")
+add_contact_menu.add_command(label = "Jack Black")
 
-chatbox = Listbox(root, bg = "black", fg = "green", width = 119, height = 39)
+chatbox = Listbox(root, bg = "black", fg = "green", width = 119, height = 38)
 chatbox.place(x = 4, y = 4)
 
 text = Text(root, height = 4)
-text.place(x = 5, y = 636)
+text.place(x = 5, y = 623)
 
 def message():
     messagetext = text
@@ -96,6 +101,6 @@ salon7.place(x = 844, y = 545)
 sendphoto = PhotoImage(file = r"images/send.png")
 
 send = Button(root, text = "button", image = sendphoto, command = message)
-send.place(x = 658, y = 642)
+send.place(x = 658, y = 630)
 
 root.mainloop()
