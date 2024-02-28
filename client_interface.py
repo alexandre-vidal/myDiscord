@@ -1,21 +1,9 @@
 # importing modules
-import socket
 from tkinter import *
 from tkinter import ttk
 
-# client =  socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-# client.connect(("localhost", 9999))
-
-# done = False
-
-# while not done:
-#     client.send(input("Message: ").encode('utf-8'))
-#     msg = client.recv(1024).decode('utf-8')
-#     if msg == 'quit':
-#         done = True
-#     else:
-#         print(msg)
+#fonts
+LARGE_FONT = ("Verdana, 12")
 
 # reference:
 
@@ -33,22 +21,29 @@ root.iconbitmap("icon.ico")
 my_menu = Menu(root)
 root.config(menu = my_menu)
 
+def openLogin():
+    ContactWindow = Toplevel(root)
+    ContactWindow.title =("Login")
+    ContactWindow.geometry("300x600")
+
+def openSettings():
+    ContactWindow = Toplevel(root)
+    ContactWindow.title =("Settings")
+    ContactWindow.geometry("600x450")
+
 add_login_menu = Menu(my_menu)
 my_menu.add_cascade(label = "Mon compte", menu = add_login_menu)
-add_login_menu.add_command(label = "Se connecter")
-add_login_menu.add_command(label = "Paramètres du compte")
+add_login_menu.add_command(label = "Se connecter", command = openLogin)
+add_login_menu.add_command(label = "Paramètres du compte", command = openSettings)
+
+def openContact():
+    ContactWindow = Toplevel(root)
+    ContactWindow.title =("Contact")
+    ContactWindow.geometry("600x450")
 
 add_contact_menu = Menu(my_menu)
 my_menu.add_cascade(label = "Contacts", menu = add_contact_menu)
-add_contact_menu.add_command(label = "David Hasselhoff")
-add_contact_menu.add_command(label = "Arnold Schwarzenegger")
-add_contact_menu.add_command(label = "Scarlett Johansson")
-add_contact_menu.add_command(label = "Sean Bean")
-add_contact_menu.add_command(label = "Daniel Radcliffe")
-add_contact_menu.add_command(label = "Ewan McGregor")
-add_contact_menu.add_command(label = "Bryan Cranston")
-add_contact_menu.add_command(label = "Michelle Yeoh")
-add_contact_menu.add_command(label = "Jack Black")
+add_contact_menu.add_command(label = "David Hasselhoff", command = openContact)
 
 chatbox = Listbox(root, bg = "black", fg = "green", width = 119, height = 38)
 chatbox.place(x = 4, y = 4)
@@ -56,12 +51,8 @@ chatbox.place(x = 4, y = 4)
 text = Text(root, height = 4)
 text.place(x = 5, y = 623)
 
-def message():
-    messagetext = text
-    message.insert(END, messagetext)
-
-servertext = Label(text="========== Serveurs ==========")
-servertext.place(x = 732, y = 0)
+servertext = Label(text="======= Serveurs =======", font=LARGE_FONT)
+servertext.place(x = 738, y = 0)
 server0 = Button(root, text = "Serveur 0", height = 2, width = 13)
 server0.place(x = 732, y = 25)
 server1 = Button(root, text = "Serveur 1", height = 2, width = 13)
@@ -79,8 +70,8 @@ server6.place(x = 732, y = 175)
 server7 = Button(root, text = "Serveur 7", height = 2, width = 13)
 server7.place(x = 844, y = 175)
 
-salontext = Label(text="=========== Salons ===========")
-salontext.place(x = 729, y = 370)
+salontext = Label(text="======== Salons ========", font=LARGE_FONT)
+salontext.place(x = 735, y = 370)
 salon0 = Button(root, text = "Salon 0", height = 2, width = 13)
 salon0.place(x = 732, y = 395)
 salon1 = Button(root, text = "Salon 1", height = 2, width = 13)
@@ -100,7 +91,7 @@ salon7.place(x = 844, y = 545)
 
 sendphoto = PhotoImage(file = r"images/send.png")
 
-send = Button(root, text = "button", image = sendphoto, command = message)
+send = Button(root, text = "button", image = sendphoto)
 send.place(x = 658, y = 630)
 
 root.mainloop()
