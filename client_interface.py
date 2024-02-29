@@ -22,19 +22,23 @@ my_menu = Menu(root)
 root.config(menu = my_menu)
 
 def openLogin():
-    ContactWindow = Toplevel(root)
-    ContactWindow.title =("Login")
-    ContactWindow.geometry("300x600")
+    LoginWindow = Toplevel(root)
+    LoginWindow.title =("Login")
+    LoginWindow.geometry("300x600")
+    text = Label(LoginWindow, text = "Bienvenue", font = LARGE_FONT)
+    text.pack()
+    userpic = PhotoImage(file = "images/user.png")
+    Label(LoginWindow, image = userpic).pack()
 
-def openSettings():
-    ContactWindow = Toplevel(root)
-    ContactWindow.title =("Settings")
-    ContactWindow.geometry("600x450")
+def openAccountSettings():
+    AccountSettingsWindow = Toplevel(root)
+    AccountSettingsWindow.title =("Settings")
+    AccountSettingsWindow.geometry("600x450")
 
 add_login_menu = Menu(my_menu)
 my_menu.add_cascade(label = "Mon compte", menu = add_login_menu)
 add_login_menu.add_command(label = "Se connecter", command = openLogin)
-add_login_menu.add_command(label = "Paramètres du compte", command = openSettings)
+add_login_menu.add_command(label = "Paramètres du compte", command = openAccountSettings)
 
 def openContact():
     ContactWindow = Toplevel(root)

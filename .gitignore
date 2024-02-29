@@ -6,3 +6,9 @@ MyDiscord.pdf
 client.py
 
 main.py
+
+*.pyc
+
+client_interface_oop.py
+
+oop-test.py
